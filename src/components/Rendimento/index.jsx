@@ -2,7 +2,18 @@ import { ContentInput, Header, Container, ContentButton } from "./styled";
 import { MdInfoOutline } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
 import checkIcon from "../../assets/check.svg";
-export function Rendimento() {
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+
+export function Rendimento(props) {
+  const [indicadores, setIndicadores] = useState([]);
+
+  useEffect(() => {
+    api.get("indicadores").then(response => {
+      setIndicadores(response.data);
+    });
+  }, []);
+
   return (
     <Container>
       <h2>Simulador</h2>
@@ -37,7 +48,14 @@ export function Rendimento() {
 
       <ContentInput>
         <p>IPCA (ao ano)</p>
-        <input type="text" placeholder="10,06%" />
+
+        {indicadores.map(indicadores => (
+          <input
+            key={indicadores.id}
+            type="text"
+            placeholder={indicadores.valor}
+          />
+        ))}
       </ContentInput>
       <button>Limpar campos</button>
     </Container>
