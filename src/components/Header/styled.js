@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  width: 100%;
+  text-align: center;
   padding: 2rem;
-`;
-export const WrapperNav = styled.nav`
-  padding-top: 135px;
 `;

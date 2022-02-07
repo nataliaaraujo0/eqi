@@ -1,14 +1,6 @@
-import { Header } from "./components/Header";
-import { Wrapper } from "./home";
-import { Simulador } from "./components/Simulador";
-
+import { Dashboard } from "./pages/Dashboard";
 function App() {
-  return (
-    <Wrapper>
-      <Header />
-      <Simulador />
-    </Wrapper>
-  );
+  return <Dashboard />;
 }
 
 export default App;
