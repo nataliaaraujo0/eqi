@@ -36,4 +36,10 @@ body{
   -webkit-font-smoothing: antialiased;
 
 }
+
+button{
+  border: 0;
+  cursor: pointer;
+
+}
 `;
