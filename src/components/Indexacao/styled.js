@@ -4,25 +4,21 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 230px;
-
-  button {
-    width: 100%;
-    height: 46px;
-    border: 1px solid #000000;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-
-    &:hover {
-      background-color: #ed8e53;
-    }
-  }
+ 
+`;
+export const ButtonSubmit = styled.button`
+width: 100%;
+height: 46px;
+border: 1px solid #000000;
+border-radius: 8px;
+font-weight: bold;
+font-size: 14px;
+background-color: var(--gray);
 `;
 
 export const Header = styled.div`
   padding-top: 18px;
   width: 100%;
-
   div {
     display: flex;
     justify-content: space-between;
@@ -38,14 +34,6 @@ export const ContentButton = styled.div`
     font-size: 12px;
     border-radius: 6px 0px 0px 6px;
     border: 1px solid #000000;
-
-    &:hover {
-      background-color: var(--orange);
-    }
-    &:active {
-      background-color: #f06915;
-    }
-
     span {
       padding-left: 2px;
     }
@@ -54,6 +42,7 @@ export const ContentButton = styled.div`
     }
     :nth-child(2) {
       border-radius: 0;
+      background-color: #ed8e53;
     }
     :nth-child(3) {
       border-radius: 0px 6px 6px 0px;

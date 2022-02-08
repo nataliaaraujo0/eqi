@@ -4,20 +4,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 230px;
+`;
 
-  button {
-    width: 100%;
+export const ButtonClean = styled.button`
+ width: 100%;
     height: 46px;
     border: 1px solid #000000;
     border-radius: 8px;
     font-weight: bold;
     font-size: 14px;
-
-    &:hover {
-      background-color: #ed8e53;
-    }
-  }
-`;
+`
 
 export const Header = styled.div`
   padding-top: 18px;
@@ -39,24 +35,19 @@ export const ContentButton = styled.div`
     border-radius: 6px 0px 0px 6px;
     border: 1px solid #000000;
     font-size: 12px;
-
-    &:hover {
-      background-color: var(--orange);
-    }
-    &:active {
-      background-color: #f06915;
-    }
-
     span {
       color: white;
       padding-left: 2px;
     }
-
+    :nth-child(1) {
+      background-color: #ed8e53;
+    }
     :nth-child(2) {
       border-radius: 0px 6px 6px 0px;
     }
   }
 `;
+
 export const ContentInput = styled.div`
   width: 100%;
   margin-top: 14px;

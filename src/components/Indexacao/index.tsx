@@ -3,6 +3,7 @@ import {
   Header,
   Container,
   ContentButton,
+  ButtonSubmit,
 } from "./styled";
 import { MdInfoOutline } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
@@ -50,7 +51,7 @@ export function Indexacao ({valor}: IndicadorProps): JSX.Element {
         <p>CDI (ao ano)</p>
         <input type="text" placeholder = {valor?.toString()}/>
       </ContentInput>
-        <button>Simular</button>
+        <ButtonSubmit>Simular</ButtonSubmit>
     </Container>
   );
 }

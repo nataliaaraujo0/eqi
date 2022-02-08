@@ -3,6 +3,7 @@ import {
   Header, 
   Container, 
   ContentButton,
+  ButtonClean,
   } from "./styled";
 import { MdInfoOutline } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
@@ -11,8 +12,9 @@ interface IndicadorProps{
   nome?: string;
   valor?: number; 
 }
+
 export function Rendimento({valor}: IndicadorProps): JSX.Element {
-  return (
+  return ( 
     <Container>
       <h2>Simulador</h2>
       <Header>
@@ -21,10 +23,8 @@ export function Rendimento({valor}: IndicadorProps): JSX.Element {
           <p data-tip="hello world">
             <MdInfoOutline />
           </p>
-
           <ReactTooltip />
         </div>
-
         <ContentButton>
           <button>
             {/* <img src={checkIcon} alt="check" /> */}
@@ -43,12 +43,12 @@ export function Rendimento({valor}: IndicadorProps): JSX.Element {
         <p>Prazo (em meses)</p>
         <input type="text" />
       </ContentInput>
-
+      
       <ContentInput>
         <p>IPCA (ao ano)</p>
         <input type="text" placeholder = {valor?.toString()}/>
       </ContentInput>
-      <button>Limpar campos</button>
+      <ButtonClean>Limpar campos</ButtonClean>
     </Container>
   );
 }
