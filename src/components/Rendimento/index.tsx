@@ -1,49 +1,54 @@
-import {
+import { 
   ContentInput,
-  Header,
-  Container,
+  Header, 
+  Container, 
   ContentButton,
-} from "./styled";
+  } from "./styled";
 import { MdInfoOutline } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
-import checkIcon from "../../assets/check.svg";
-export function Indexacao() {
+// import  * as checkIcon from "check.svg" ;
+interface IndicadorProps{
+  nome?: string;
+  valor?: number; 
+}
+export function Rendimento({valor}: IndicadorProps): JSX.Element {
   return (
     <Container>
+      <h2>Simulador</h2>
       <Header>
         <div>
-          <p>Taxa de indexação</p>
+          <p>Rendimento</p>
           <p data-tip="hello world">
             <MdInfoOutline />
           </p>
 
           <ReactTooltip />
         </div>
+
         <ContentButton>
-          <button>Pré</button>
           <button>
-            <img src={checkIcon} alt="check" />
-            <span>Pos</span>
+            {/* <img src={checkIcon} alt="check" /> */}
+            <span>Bruto</span>
           </button>
-          <button>Fixado</button>
+          <button>Liquido</button>
         </ContentButton>
       </Header>
 
       <ContentInput>
-        <p>Aporte Mensal</p>
+        <p>Aporte Inicial</p>
         <input type="text" />
       </ContentInput>
 
       <ContentInput>
-        <p>Rentabilidade</p>
+        <p>Prazo (em meses)</p>
         <input type="text" />
       </ContentInput>
 
       <ContentInput>
-        <p>CDI (ao ano)</p>
-        <input type="text" placeholder="9,18%" />
+        <p>IPCA (ao ano)</p>
+        <input type="text" placeholder = {valor?.toString()}/>
       </ContentInput>
-        <button>Simular</button>
+      <button>Limpar campos</button>
     </Container>
   );
 }
