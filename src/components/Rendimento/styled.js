@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 230px;
+  background-color: #3d3d3d;
+  grid-column: 1/2;
+  height: 555px;
 `;
 
 export const ButtonClean = styled.button`

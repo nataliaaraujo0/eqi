@@ -12,7 +12,6 @@ interface IndicadorProps{
   nome?: string;
   valor?: number; 
 }
-
 export function Rendimento({valor}: IndicadorProps): JSX.Element {
   return ( 
     <Container>
@@ -33,7 +32,6 @@ export function Rendimento({valor}: IndicadorProps): JSX.Element {
           <button>Liquido</button>
         </ContentButton>
       </Header>
-
       <ContentInput>
         <p>Aporte Inicial</p>
         <input type="text" />

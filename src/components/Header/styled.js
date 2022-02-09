@@ -4,4 +4,5 @@ export const Wrapper = styled.header`
   width: 100%;
   text-align: center;
   padding: 2rem;
+  background-color: #420039;
 `;

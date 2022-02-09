@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 230px;
- 
+  background-color:#d72638;
+ grid-column: 2/3;
+ height: 555px;
 `;
 export const ButtonSubmit = styled.button`
 width: 100%;

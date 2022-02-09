@@ -1,17 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  max-width: 1120px;
-  height: 100vh;
   margin: 0 auto;
+  padding: 4px;
 `;
-
 export const Wrapper = styled.div`
-  padding: 0 10px;
-  width: 520px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 2.5fr 2.5fr 6fr;
+align-items: center;
 `;
