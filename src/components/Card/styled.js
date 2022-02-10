@@ -7,5 +7,7 @@ background-color: white;
 margin: 4px;
 background-color:#12355b;
 display: flex;
+flex-direction: column;
+color: white;
 `;
 

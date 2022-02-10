@@ -5,11 +5,11 @@ import { Header } from "../../components/Header";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { ResultSimulacao } from "../../components/ResultSimulacao";
+
 interface IndicadorProps{
   nome: string;
   valor?: number; 
 }
-
 export function Dashboard() {
   const [indicadores, setIndicadores] = useState<IndicadorProps[]>([]);
   const [cdi,ipca] = indicadores;
@@ -19,7 +19,7 @@ export function Dashboard() {
       setIndicadores(response.data);
     });
   }, []);
-
+  
   return (
     <Container>
       <Header />
@@ -30,7 +30,8 @@ export function Dashboard() {
         <Indexacao 
         valor={cdi?.valor}
          />
-      <ResultSimulacao/>
+      <ResultSimulacao 
+      />
       </Wrapper>
     </Container>
   );

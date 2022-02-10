@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color:#d72638;
+background-color:#d72638;
  grid-column: 2/3;
  height: 555px;
 `;
