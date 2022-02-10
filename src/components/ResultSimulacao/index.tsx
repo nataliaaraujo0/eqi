@@ -17,6 +17,7 @@ export function ResultSimulacao(){
   const [ 
     valorFinalBruto,
     aliquotaIR,
+    valorPagoIR,
     valorFinalLiquido,
     valorTotalInvestido,
     ganhoLiquido] = simulacoes;
@@ -32,19 +33,35 @@ export function ResultSimulacao(){
       <h2>Resultado da Simulação</h2>
       <ContentCard>
         <Card
-          valorFinalBruto = {valorFinalBruto?.valorFinalBruto}
+        strongText="Valor final Bruto"
+          spanText = {valorFinalBruto?.valorFinalBruto}
+          // valorFinalBruto = 
         />
         <Card
-         aliquotaIR = {aliquotaIR?.aliquotaIR}/>
-        <Card
-          valorFinalLiquido = {valorFinalLiquido?.valorFinalLiquido}/>
-        <Card
-         valorTotalInvestido = { valorTotalInvestido?.valorTotalInvestido}
+         strongText="Alíquota do IR"
+           spanText = {aliquotaIR?.aliquotaIR}
          />
+
+         <Card
+         strongText="Valor Pago em IR"
+           spanText = {valorPagoIR?.valorPagoIR}
+         />
+         
+         <Card
+         strongText="Valor Final Líquido"
+           spanText = {valorFinalLiquido?.valorFinalLiquido}
+         />
+
+          <Card
+         strongText="Valor Total Investido"
+           spanText = {valorTotalInvestido?.valorTotalInvestido}
+         />
+
         <Card
-           ganhoLiquido = { ganhoLiquido?.ganhoLiquido}
-        />
-        <Card/>
+         strongText="Ganho Líquido"
+           spanText = {ganhoLiquido?.ganhoLiquido}
+         />
+       
       </ContentCard>
       <ContentGrafico>
         <h2>Grafico</h2>

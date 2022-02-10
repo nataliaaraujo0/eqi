@@ -1,15 +1,12 @@
 import { Container } from "./styled";
-interface simuladorProps{
-  valorFinalBruto?: number;
-}
 
-export function Card({valorFinalBruto,
- }:simuladorProps): JSX.Element{
-
+export function Card({spanText = "", strongText = "",valorFinalBruto}){
   return(
    <Container>
-     <strong>Valor Final Bruto</strong>
-     <span>{valorFinalBruto?.toString()}</span>
+     <strong>{strongText}</strong>
+     {/* <span>{valorFinalBruto?.toString()}</span> */}
+     <span>{spanText}</span>
    </Container>
   )
 }
+
