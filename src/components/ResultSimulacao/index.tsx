@@ -3,7 +3,7 @@ import {Card} from "../../components/Card"
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 
-interface simuladorProps{
+interface SimuladorProps{
   valorFinalBruto?: number;
   aliquotaIR?:number;
   valorPagoIR?:number;
@@ -13,14 +13,8 @@ interface simuladorProps{
 }
 
 export function ResultSimulacao(){
-  const [simulacoes, setSimulacoes] = useState<simuladorProps[]>([]);
-  const [ 
-    valorFinalBruto,
-    aliquotaIR,
-    valorPagoIR,
-    valorFinalLiquido,
-    valorTotalInvestido,
-    ganhoLiquido] = simulacoes;
+  const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
+  const [simulacaoPre] = simulacoes;
 
   useEffect(() => {
     api.get("simulacoes").then(response => {
@@ -34,32 +28,32 @@ export function ResultSimulacao(){
       <ContentCard>
         <Card
         strongText="Valor final Bruto"
-          spanText = {valorFinalBruto?.valorFinalBruto}
+          spanText = {simulacaoPre?.valorFinalBruto}
           // valorFinalBruto = 
         />
         <Card
          strongText="Alíquota do IR"
-           spanText = {aliquotaIR?.aliquotaIR}
+           spanText = {simulacaoPre?.aliquotaIR}
          />
 
          <Card
          strongText="Valor Pago em IR"
-           spanText = {valorPagoIR?.valorPagoIR}
+           spanText = {simulacaoPre?.valorPagoIR}
          />
          
          <Card
          strongText="Valor Final Líquido"
-           spanText = {valorFinalLiquido?.valorFinalLiquido}
+           spanText = {simulacaoPre?.valorFinalLiquido}
          />
 
           <Card
          strongText="Valor Total Investido"
-           spanText = {valorTotalInvestido?.valorTotalInvestido}
+           spanText = {simulacaoPre?.valorTotalInvestido}
          />
 
         <Card
          strongText="Ganho Líquido"
-           spanText = {ganhoLiquido?.ganhoLiquido}
+           spanText = {simulacaoPre?.ganhoLiquido}
          />
        
       </ContentCard>

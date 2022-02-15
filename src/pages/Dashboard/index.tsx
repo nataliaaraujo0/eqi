@@ -10,10 +10,12 @@ interface IndicadorProps{
   nome: string;
   valor?: number; 
 }
+
 export function Dashboard() {
   const [indicadores, setIndicadores] = useState<IndicadorProps[]>([]);
   const [cdi,ipca] = indicadores;
   
+ 
   useEffect(() => {
     api.get("indicadores").then(response => {
       setIndicadores(response.data);
@@ -26,7 +28,7 @@ export function Dashboard() {
       <Wrapper>
         <Rendimento 
         valor={ipca?.valor} 
-        />
+         />
         <Indexacao 
         valor={cdi?.valor}
          />
