@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.header`
-  width: 100%;
-  text-align: center;
-  padding: 2rem;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
 `;

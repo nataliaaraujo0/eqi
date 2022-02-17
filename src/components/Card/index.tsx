@@ -1,12 +1,11 @@
-import { Container } from "./styled";
+import { Container } from './styled';
 
-export function Card({spanText = "", strongText = ""}){
-  return(
-   <Container>
-     <strong>{strongText}</strong>
-     {/* <span>{valorFinalBruto?.}</span> */}
-     <span>{spanText}</span>
-   </Container>
-  )
+export function Card({ spanText = '', strongText = '' }) {
+    return (
+        <Container>
+            <strong>{strongText}</strong>
+            {/* <span>{valorFinalBruto?.}</span> */}
+            <span>{spanText}</span>
+        </Container>
+    );
 }
-

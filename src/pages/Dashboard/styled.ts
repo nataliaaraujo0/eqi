@@ -10,5 +10,5 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   grid-template-columns: 2.5fr 2.5fr 6fr;
-align-items: center;
+  align-items: center;
 `;

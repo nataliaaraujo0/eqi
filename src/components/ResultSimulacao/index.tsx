@@ -1,69 +1,68 @@
-import { ContentCard, Container, ContentGrafico} from "./styled";
-import {Card} from "../../components/Card"
-import { useEffect, useState } from "react";
-import api from "../../services/api";
+import { useEffect, useState } from 'react';
 
-interface SimuladorProps{
-  valorFinalBruto?: number;
-  aliquotaIR?:number;
-  valorPagoIR?:number;
-  valorFinalLiquido?:number;
-  valorTotalInvestido?:number;
-  ganhoLiquido?:number
+import api from '../../services/api';
+import { Card } from '../Card';
+import { Graficos } from '../Graficos';
+import { ContentCard, Container, ContentGrafico } from './styled';
+
+interface SimuladorProps {
+    valorFinalBruto?: number;
+    aliquotaIR?: number;
+    valorPagoIR?: number;
+    valorFinalLiquido?: number;
+    valorTotalInvestido?: number;
+    ganhoLiquido?: number;
 }
 
-export function ResultSimulacao(){
-  const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
-  const [simulacaoPre] = simulacoes;
+export function ResultSimulacao() {
+    const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
+    const [simulacaoPre] = simulacoes;
 
-  useEffect(() => {
-    api.get("simulacoes").then(response => {
-      setSimulacoes(response.data);
-    });
-  }, []);
+    useEffect(() => {
+        api.get('simulacoes').then((response) => {
+            setSimulacoes(response.data);
+        });
+    }, []);
 
-  return(
-    <Container>
-      <h2>Resultado da Simulação</h2>
-      <ContentCard>
-        <Card
-        strongText="Valor final Bruto"
-          spanText = {simulacaoPre?.valorFinalBruto}
-          // valorFinalBruto = 
-        />
-        <Card
-         strongText="Alíquota do IR"
-           spanText = {simulacaoPre?.aliquotaIR}
-         />
+    return (
+        <Container>
+            <h2>Resultado da Simulação</h2>
+            <ContentCard>
+                <Card
+                    strongText="Valor final Bruto"
+                    spanText={simulacaoPre?.valorFinalBruto}
+                    // valorFinalBruto =
+                />
+                <Card
+                    strongText="Alíquota do IR"
+                    spanText={simulacaoPre?.aliquotaIR}
+                />
 
-         <Card
-         strongText="Valor Pago em IR"
-           spanText = {simulacaoPre?.valorPagoIR}
-         />
-         
-         <Card
-         strongText="Valor Final Líquido"
-           spanText = {simulacaoPre?.valorFinalLiquido}
-         />
+                <Card
+                    strongText="Valor Pago em IR"
+                    spanText={simulacaoPre?.valorPagoIR}
+                />
 
-          <Card
-         strongText="Valor Total Investido"
-           spanText = {simulacaoPre?.valorTotalInvestido}
-         />
+                <Card
+                    strongText="Valor Final Líquido"
+                    spanText={simulacaoPre?.valorFinalLiquido}
+                />
 
-        <Card
-         strongText="Ganho Líquido"
-           spanText = {simulacaoPre?.ganhoLiquido}
-         />
-       
-      </ContentCard>
-      <ContentGrafico>
-        <h2>Grafico</h2>
-      </ContentGrafico>
-    </Container>
-  )
+                <Card
+                    strongText="Valor Total Investido"
+                    spanText={simulacaoPre?.valorTotalInvestido}
+                />
+
+                <Card
+                    strongText="Ganho Líquido"
+                    spanText={simulacaoPre?.ganhoLiquido}
+                />
+            </ContentCard>
+            <Graficos />
+        </Container>
+    );
 }
 
 function setIndicadores(data: any) {
-  throw new Error("Function not implemented.");
+    throw new Error('Function not implemented.');
 }

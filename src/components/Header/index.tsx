@@ -1,9 +1,9 @@
-import { Wrapper } from "./styled";
+import { Wrapper } from './styled';
 
 export function Header() {
-  return (
-    <Wrapper>
-      <h1>Simulador de Investimentos</h1>
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <h1>Simulador de Investimentos</h1>
+        </Wrapper>
+    );
 }

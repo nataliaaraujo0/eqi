@@ -18,13 +18,13 @@ html{
 }
 
 :root{
-  
+
   --write:#FFFFFF;
   --write-50: #EFEFEF;
   --gray:#969696;
-  
+
   --black:#000000;
-  
+
     --orange:#ED8E53;
 
     --red:#EF3C3C;
