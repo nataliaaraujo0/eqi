@@ -38,9 +38,7 @@ export const ContentButton = styled.div`
             color: white;
             padding-left: 2px;
         }
-        :nth-child(1) {
-            background-color: #ed8e53;
-        }
+
         :nth-child(2) {
             border-radius: 0px 6px 6px 0px;
         }
@@ -54,7 +52,7 @@ export const ContentInput = styled.div`
     display: flex;
     flex-direction: column;
 
-    p {
+    label {
         margin-bottom: 20px;
         font-size: 14px;
     }

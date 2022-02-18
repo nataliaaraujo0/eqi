@@ -40,7 +40,6 @@ export const ContentButton = styled.div`
         }
         :nth-child(2) {
             border-radius: 0;
-            background-color: #ed8e53;
         }
         :nth-child(3) {
             border-radius: 0px 6px 6px 0px;

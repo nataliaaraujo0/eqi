@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MdInfoOutline } from 'react-icons/md';
 import ReactTooltip from 'react-tooltip';
 
+import { ButtonRendimento } from '../ButtonRendimento';
 import {
     ContentInput,
     Header,
@@ -10,16 +12,15 @@ import {
     ButtonClean,
 } from './styled';
 // import  * as checkIcon from "check.svg" ;
-interface IndicadorProps {
-    nome?: string;
-    valor?: number;
-}
-interface UseFormInputs {
+type IndicadorProps = {
+    valor: number;
+};
+type UseFormInputs = {
     aporte: number;
     prazo: string;
-}
+};
 
-export function Rendimento({ valor }: IndicadorProps): JSX.Element {
+export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
     const {
         register,
         handleSubmit,
@@ -29,7 +30,8 @@ export function Rendimento({ valor }: IndicadorProps): JSX.Element {
     const onSubmit = (data: UseFormInputs) => {
         console.log(data);
     };
-
+    const [active, setActive] = useState(false);
+    console.log(active);
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
             <Header>
@@ -41,15 +43,12 @@ export function Rendimento({ valor }: IndicadorProps): JSX.Element {
                     <ReactTooltip />
                 </div>
                 <ContentButton>
-                    <button type="button">
-                        {/* <img src={checkIcon} alt="check" /> */}
-                        <span>Bruto</span>
-                    </button>
-                    <button type="button">Liquido</button>
+                    <ButtonRendimento />
                 </ContentButton>
             </Header>
             <ContentInput>
                 <p>Aporte Inicial</p>
+                {/* eslint-disable react/jsx-props-no-spreading */}
                 <input type="text" {...register('aporte')} />
             </ContentInput>
 

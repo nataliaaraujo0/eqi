@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 
+import { FormIndexacao } from '../../components/FormIndexacao';
+import { FormRendimento } from '../../components/FormRendimento';
 import { Header } from '../../components/Header';
-import { Indexacao } from '../../components/Indexacao';
-import { Rendimento } from '../../components/Rendimento';
 import { ResultSimulacao } from '../../components/ResultSimulacao';
 import api from '../../services/api';
 import { Wrapper, Container } from './styled';
 
-interface IndicadorProps {
-    nome: string;
-    valor?: number;
-}
+type IndicadorProps = {
+    valor: number;
+};
 
 export function Dashboard() {
     const [indicadores, setIndicadores] = useState<IndicadorProps[]>([]);
@@ -26,8 +25,8 @@ export function Dashboard() {
         <Container>
             <Header />
             <Wrapper>
-                <Rendimento valor={ipca?.valor} />
-                <Indexacao valor={cdi?.valor} />
+                <FormRendimento valor={ipca?.valor} />
+                <FormIndexacao valor={cdi?.valor} />
                 <ResultSimulacao />
             </Wrapper>
         </Container>

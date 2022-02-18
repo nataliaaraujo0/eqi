@@ -4,6 +4,7 @@ import { MdInfoOutline } from 'react-icons/md';
 import ReactTooltip from 'react-tooltip';
 import * as yup from 'yup';
 
+import { ButtonIndexacao } from '../ButtonIndexacao';
 import {
     ContentInput,
     Header,
@@ -13,15 +14,14 @@ import {
 } from './styled';
 // import checkIcon from "../../assets/check.svg";
 
-interface IndicadorProps {
-    nome: string;
+type IndicadorProps = {
     valor: number;
-}
+};
 
-interface IFormInputs {
+type FormInputs = {
     aporte: string;
     rentabilidade: number;
-}
+};
 
 const schema = yup
     .object({
@@ -30,15 +30,15 @@ const schema = yup
     })
     .required();
 
-export function Indexacao({ valor }: IndicadorProps): JSX.Element {
+export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormInputs>({
+    } = useForm<FormInputs>({
         resolver: yupResolver(schema),
     });
-    const onSubmit = (data: IFormInputs) => console.log(data);
+    const onSubmit = (data: FormInputs) => console.log(data);
 
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
@@ -52,27 +52,19 @@ export function Indexacao({ valor }: IndicadorProps): JSX.Element {
                     <ReactTooltip />
                 </div>
                 <ContentButton>
-                    <button type="button">Pré</button>
-                    <button type="button">
-                        {/* <img src={checkIcon} alt="check" /> */}
-                        <span>Pos</span>
-                    </button>
-                    <button type="button">Fixado</button>
+                    <ButtonIndexacao />
                 </ContentButton>
             </Header>
 
             <ContentInput>
                 <p>Aporte Mensal</p>
+                {/* eslint-disable react/jsx-props-no-spreading */}
                 <input {...register('aporte', { required: true })} />
-                {/* <span style={{ color: 'red' }}>Campo obrigatório</span> */}
             </ContentInput>
 
             <ContentInput>
                 <p>Rentabilidade</p>
                 <input {...register('rentabilidade', { required: true })} />
-                {/* <span style={{ color: 'red' }}>
-                    {errors.rentabilidade?.message}
-                </span> */}
             </ContentInput>
 
             <ContentInput>

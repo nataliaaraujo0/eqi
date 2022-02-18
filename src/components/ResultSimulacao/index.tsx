@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { Card } from '../Card';
 import { Graficos } from '../Graficos';
-import { ContentCard, Container, ContentGrafico } from './styled';
+import { ContentCard, Container } from './styled';
 
-interface SimuladorProps {
+type SimuladorProps = {
     valorFinalBruto?: number;
     aliquotaIR?: number;
     valorPagoIR?: number;
     valorFinalLiquido?: number;
     valorTotalInvestido?: number;
     ganhoLiquido?: number;
-}
+};
 
 export function ResultSimulacao() {
     const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
@@ -21,6 +21,7 @@ export function ResultSimulacao() {
     useEffect(() => {
         api.get('simulacoes').then((response) => {
             setSimulacoes(response.data);
+            console.log(response.data);
         });
     }, []);
 
