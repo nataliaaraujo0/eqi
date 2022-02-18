@@ -12,7 +12,6 @@ export const Container = styled.div`
     strong {
         padding: 1em;
     }
-
     span {
         padding: 1rem;
     }

@@ -32,7 +32,6 @@ export function Rendimento({ valor }: IndicadorProps): JSX.Element {
 
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
-            <h2>Simulador</h2>
             <Header>
                 <div>
                     <p>Rendimento</p>

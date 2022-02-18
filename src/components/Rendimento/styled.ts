@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ContainerForm = styled.form`
-    background-color: #3d3d3d;
     grid-column: 1/2;
     height: 555px;
 `;

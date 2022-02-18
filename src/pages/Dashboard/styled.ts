@@ -1,14 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.main`
-  margin: 0 auto;
-  padding: 4px;
+    margin: 0 auto;
+    padding: 4px;
 `;
 export const Wrapper = styled.div`
-  display: grid;
-  gap: 8px;
-  width: 100%;
-  height: 100vh;
-  grid-template-columns: 2.5fr 2.5fr 6fr;
-  align-items: center;
+    display: grid;
+    gap: 8px;
+    width: 100%;
+    grid-template-columns: 2.5fr 2.5fr 6fr;
+    align-items: center;
 `;

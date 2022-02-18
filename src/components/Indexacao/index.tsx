@@ -14,13 +14,15 @@ import {
 // import checkIcon from "../../assets/check.svg";
 
 interface IndicadorProps {
-    nome?: string;
-    valor?: number;
+    nome: string;
+    valor: number;
 }
+
 interface IFormInputs {
     aporte: string;
     rentabilidade: number;
 }
+
 const schema = yup
     .object({
         aporte: yup.string().required(),
@@ -62,15 +64,15 @@ export function Indexacao({ valor }: IndicadorProps): JSX.Element {
             <ContentInput>
                 <p>Aporte Mensal</p>
                 <input {...register('aporte', { required: true })} />
-                <span style={{ color: 'red' }}>Campo obrigatório</span>
+                {/* <span style={{ color: 'red' }}>Campo obrigatório</span> */}
             </ContentInput>
 
             <ContentInput>
                 <p>Rentabilidade</p>
                 <input {...register('rentabilidade', { required: true })} />
-                <span style={{ color: 'red' }}>
+                {/* <span style={{ color: 'red' }}>
                     {errors.rentabilidade?.message}
-                </span>
+                </span> */}
             </ContentInput>
 
             <ContentInput>
