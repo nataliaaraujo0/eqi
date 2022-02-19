@@ -17,7 +17,7 @@
 #### Axios-> cliente HTTP baseado em Promises que ajuda nas requisições.
   
 <br><br>
-### Trefa diferencial:
+### Tarefa diferencial:
 - Ferramentas adicionais que facilitem o seu trabalho (eslint, prettier, webpack/vite);
   
   
