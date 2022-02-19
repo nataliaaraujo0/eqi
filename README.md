@@ -41,6 +41,12 @@
 yarn 
 ```
 
+  
+```bash
+# Inicialize server-json antes de rodar o próximo comando.
+yarn server
+```
+  
 ```bash
 # Inicialize vite
 yarn dev
