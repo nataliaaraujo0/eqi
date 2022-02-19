@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerForm = styled.form`
     grid-column: 2/3;
-    height: 555px;
 `;
 export const ButtonSubmit = styled.button`
     width: 100%;
@@ -15,6 +14,7 @@ export const ButtonSubmit = styled.button`
 `;
 
 export const Header = styled.div`
+    margin-top: 1.8rem;
     padding-top: 18px;
     width: 100%;
     div {
@@ -55,7 +55,7 @@ export const ContentInput = styled.div`
     display: flex;
     flex-direction: column;
 
-    p {
+    label {
         margin-bottom: 20px;
         font-size: 14px;
     }

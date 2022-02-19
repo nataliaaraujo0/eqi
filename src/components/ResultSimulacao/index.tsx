@@ -1,6 +1,3 @@
-import { useState } from 'react';
-
-import { useFetch } from '../../hook/useFetch';
 import { Card } from '../Card';
 import { Graficos } from '../Graficos';
 import { ContentCard, Container } from './styled';
@@ -17,15 +14,6 @@ type SimuladorProps = {
 };
 
 export function ResultSimulacao({ data }: SimuladorProps) {
-    const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
-    const [simulacaoPre] = simulacoes;
-    const { error, isFetching } = useFetch('simulacoes');
-
-    if (isFetching)
-        <div>
-            <p>loading</p>
-        </div>;
-    console.log(data);
     return (
         <Container>
             <h2>Resultado da Simulação</h2>
@@ -63,8 +51,4 @@ export function ResultSimulacao({ data }: SimuladorProps) {
             <Graficos />
         </Container>
     );
-}
-
-function setIndicadores(data: any) {
-    throw new Error('Function not implemented.');
 }

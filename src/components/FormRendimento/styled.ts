@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerForm = styled.form`
     grid-column: 1/2;
-    height: 555px;
 `;
 
 export const ButtonClean = styled.button`

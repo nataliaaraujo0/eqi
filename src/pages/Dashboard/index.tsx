@@ -8,9 +8,6 @@ import { useContextButtonIndexacao } from '../../Context/ContextButtonIndexacao'
 import { useFetch } from '../../hook/useFetch';
 import { Wrapper, Container } from './styled';
 
-type IndicadorProps = {
-    valor: number;
-};
 type SimuladorProps = {
     data: Array<{
         valorFinalBruto: number;
@@ -23,21 +20,21 @@ type SimuladorProps = {
 };
 
 export function Dashboard() {
-    const { data: indicadores, isFetching, error } = useFetch('indicadores');
-    const { data: simulacoes } = useFetch<SimuladorProps[]>('simulacoes');
+    const { data: indicadores, isFetching } = useFetch('indicadores');
+    const { data: simulacoes } = useFetch('simulacoes');
     const [filtered, setFiltered] = useState([]);
     const { indexacao, simulate } = useContextButtonIndexacao();
     useEffect(() => {
-        const newItems = simulacoes.filter((item) => {
-            return (
-                item.tipoIndexacao === indexacao &&
-                item.tipoRendimento === 'bruto'
-            );
-        });
-        setFiltered(newItems);
-    }, [indexacao]);
-    console.log(filtered);
-    console.log('simulate:', simulate);
+        if (simulate) {
+            const newItems = simulacoes.filter((item) => {
+                return (
+                    item.tipoIndexacao === indexacao &&
+                    item.tipoRendimento === 'bruto'
+                );
+            });
+            setFiltered(newItems);
+        }
+    }, [simulate, indexacao]);
     if (isFetching)
         <div>
             <p>loading</p>

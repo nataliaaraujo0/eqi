@@ -4,7 +4,7 @@ import { ButtonActive } from './styled';
 
 export function ButtonRendimento() {
     const [rendimento, setRendimento] = useState('');
-    const [active, setActive] = useState(false);
+    const [active] = useState(false);
 
     return (
         <>

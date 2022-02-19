@@ -43,7 +43,7 @@ const series = [
 export function Graficos() {
     return (
         <Container>
-            <Chart type="bar" height={300} options={options} series={series} />
+            <Chart type="bar" height={200} options={options} series={series} />
         </Container>
     );
 }

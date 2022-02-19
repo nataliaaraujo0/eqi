@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MdInfoOutline } from 'react-icons/md';
 import ReactTooltip from 'react-tooltip';
@@ -11,7 +10,7 @@ import {
     ContentButton,
     ButtonClean,
 } from './styled';
-// import  * as checkIcon from "check.svg" ;
+
 type IndicadorProps = {
     valor: number;
 };
@@ -36,14 +35,11 @@ export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
         reset,
         formState: { errors },
     } = useForm<UseFormInputs>();
-    const onSubmit = (data: UseFormInputs) => {
-        console.log(data);
-    };
-    const [active, setActive] = useState(false);
-    console.log(active);
+    const onSubmit = (data: UseFormInputs) => {};
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
             <Header>
+                <h2>Simular</h2>
                 <div>
                     <p>Rendimento</p>
                     <p data-tip="hello world">
@@ -56,18 +52,21 @@ export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
                 </ContentButton>
             </Header>
             <ContentInput>
-                <p>Aporte Inicial</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>Aporte Inicial</label>
                 {/* eslint-disable react/jsx-props-no-spreading */}
                 <input type="text" {...register('aporte')} />
             </ContentInput>
 
             <ContentInput>
-                <p>Prazo (em meses)</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>Prazo(em meses)</label>
                 <input type="text" {...register('prazo')} />
             </ContentInput>
 
             <ContentInput>
-                <p>IPCA (ao ano)</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>IPCA (ao ano)</label>
                 <input type="text" placeholder={valor?.toString()} />
             </ContentInput>
             <ButtonClean
@@ -78,11 +77,4 @@ export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
             </ButtonClean>
         </ContainerForm>
     );
-}
-function useFetch<T>(arg0: string): { data: any } {
-    throw new Error('Function not implemented.');
-}
-
-function useContextButtonIndexacao(): { indexacao: any } {
-    throw new Error('Function not implemented.');
 }

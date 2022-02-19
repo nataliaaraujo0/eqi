@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 
 import api from '../services/api';
 
-export function useFetch<T = unknown>(
-    url: string,
-    options?: AxiosRequestConfig
-) {
+export function useFetch(url: string, options?: AxiosRequestConfig) {
     const [data, setData] = useState([]);
     const [isFetching, setFetching] = useState(true);
     const [error, setError] = useState(null);

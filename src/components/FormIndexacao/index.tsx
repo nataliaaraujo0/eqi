@@ -13,7 +13,7 @@ import {
     ContentButton,
     ButtonSubmit,
 } from './styled';
-// import checkIcon from "../../assets/check.svg";
+
 type SimuladorProps = {
     data: Array<{
         valorFinalBruto: number;
@@ -50,9 +50,7 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
     } = useForm<FormInputs>({
         resolver: yupResolver(schema),
     });
-    const onSubmit = (data: FormInputs) => {
-        // handleSimulate(true);
-    };
+    const onSubmit = (data: FormInputs) => {};
 
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
@@ -71,18 +69,21 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
             </Header>
 
             <ContentInput>
-                <p>Aporte Mensal</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>Aporte Mensal</label>
                 {/* eslint-disable react/jsx-props-no-spreading */}
                 <input {...register('aporte', { required: true })} />
             </ContentInput>
 
             <ContentInput>
-                <p>Rentabilidade</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>Rentabilidade</label>
                 <input {...register('rentabilidade', { required: true })} />
             </ContentInput>
 
             <ContentInput>
-                <p>CDI (ao ano)</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label>CDI (ao ano)</label>
                 <input type="text" placeholder={valor?.toString()} />
             </ContentInput>
             <ButtonSubmit onClick={() => handleSimulate(true)} type="submit">
@@ -90,7 +91,4 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
             </ButtonSubmit>
         </ContainerForm>
     );
-}
-function useFetch<T>(arg0: string): { data: any } {
-    throw new Error('Function not implemented.');
 }
