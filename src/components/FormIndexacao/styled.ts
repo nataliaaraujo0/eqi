@@ -83,4 +83,7 @@ export const ContentInput = styled.div`
     input:focus-visible {
         outline: none;
     }
+    span {
+        font-weight: 600;
+    }
 `;

@@ -29,15 +29,15 @@ type IndicadorProps = {
     valor: number;
 };
 
-type FormInputs = {
+type IFormInputs = {
     aporte: string;
     rentabilidade: number;
 };
 
 const schema = yup
     .object({
-        aporte: yup.string().required(),
-        rentabilidade: yup.number().required('ola'),
+        aporte: yup.string().required('Aporte deve ser um número'),
+        rentabilidade: yup.number().required(),
     })
     .required();
 
@@ -47,10 +47,10 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormInputs>({
+    } = useForm<IFormInputs>({
         resolver: yupResolver(schema),
     });
-    const onSubmit = (data: FormInputs) => {};
+    const onSubmit = (data: IFormInputs) => console.log(data);
 
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
@@ -70,15 +70,25 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
 
             <ContentInput>
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label>Aporte Mensal</label>
-                {/* eslint-disable react/jsx-props-no-spreading */}
-                <input {...register('aporte', { required: true })} />
+                <label>
+                    Aporte Mensal
+                    {/* eslint-disable react/jsx-props-no-spreading */}
+                    <input
+                        type="text"
+                        {...register('aporte', { required: true })}
+                    />
+                    <span style={{ color: 'red' }}>
+                        {errors.aporte?.message}
+                    </span>
+                </label>
             </ContentInput>
 
             <ContentInput>
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label>Rentabilidade</label>
-                <input {...register('rentabilidade', { required: true })} />
+                <label>
+                    Rentabilidade
+                    <input {...register('rentabilidade')} />
+                </label>
             </ContentInput>
 
             <ContentInput>
