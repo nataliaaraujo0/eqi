@@ -6,8 +6,10 @@ type ProviderProps = {
 };
 type ContextProps = {
     indexacao: string;
+    simulate: boolean;
     // active: boolean;
     handleIndexacao: (valor: string) => void;
+    handleSimulate: (state: boolean) => void;
 };
 
 const ContextButtonIndexacao: Context<ContextProps> = createContext(
@@ -15,16 +17,19 @@ const ContextButtonIndexacao: Context<ContextProps> = createContext(
 );
 
 export function ProviderContext({ children }: ProviderProps) {
-    const [rendimento, setRendimento] = useState('');
-    const [active, setActive] = useState(false);
+    const [indexacao, setIndexacao] = useState('');
+    const [simulate, setSimulate] = useState(false);
 
     const handleIndexacao = (valor: string) => {
-        setRendimento(valor);
+        setIndexacao(valor);
+    };
+    const handleSimulate = (state) => {
+        setSimulate(state);
     };
 
     return (
         <ContextButtonIndexacao.Provider
-            value={{ indexacao: rendimento, handleIndexacao }}
+            value={{ indexacao, handleIndexacao, simulate, handleSimulate }}
         >
             {children}
         </ContextButtonIndexacao.Provider>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MdInfoOutline } from 'react-icons/md';
 import ReactTooltip from 'react-tooltip';
@@ -19,7 +19,16 @@ type UseFormInputs = {
     aporte: number;
     prazo: string;
 };
-
+type SimuladorProps = {
+    data: Array<{
+        valorFinalBruto: number;
+        aliquotaIR: number;
+        valorPagoIR: number;
+        valorFinalLiquido: number;
+        valorTotalInvestido: number;
+        ganhoLiquido: number;
+    }>;
+};
 export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
     const {
         register,
@@ -69,4 +78,11 @@ export function FormRendimento({ valor }: IndicadorProps): JSX.Element {
             </ButtonClean>
         </ContainerForm>
     );
+}
+function useFetch<T>(arg0: string): { data: any } {
+    throw new Error('Function not implemented.');
+}
+
+function useContextButtonIndexacao(): { indexacao: any } {
+    throw new Error('Function not implemented.');
 }

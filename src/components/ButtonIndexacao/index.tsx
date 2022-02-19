@@ -24,8 +24,8 @@ export function ButtonIndexacao() {
             </ButtonActive>
             <ButtonActive
                 type="button"
-                onClick={() => handleIndexacao('fixado')}
-                isActive={indexacao === 'fixado'}
+                onClick={() => handleIndexacao('ipca')}
+                isActive={indexacao === 'ipca'}
             >
                 Fixado
             </ButtonActive>

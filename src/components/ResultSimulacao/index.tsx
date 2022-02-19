@@ -1,62 +1,63 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import api from '../../services/api';
+import { useFetch } from '../../hook/useFetch';
 import { Card } from '../Card';
 import { Graficos } from '../Graficos';
 import { ContentCard, Container } from './styled';
 
 type SimuladorProps = {
-    valorFinalBruto?: number;
-    aliquotaIR?: number;
-    valorPagoIR?: number;
-    valorFinalLiquido?: number;
-    valorTotalInvestido?: number;
-    ganhoLiquido?: number;
+    data: Array<{
+        valorFinalBruto: number;
+        aliquotaIR: number;
+        valorPagoIR: number;
+        valorFinalLiquido: number;
+        valorTotalInvestido: number;
+        ganhoLiquido: number;
+    }>;
 };
 
-export function ResultSimulacao() {
+export function ResultSimulacao({ data }: SimuladorProps) {
     const [simulacoes, setSimulacoes] = useState<SimuladorProps[]>([]);
     const [simulacaoPre] = simulacoes;
+    const { error, isFetching } = useFetch('simulacoes');
 
-    useEffect(() => {
-        api.get('simulacoes').then((response) => {
-            setSimulacoes(response.data);
-            console.log(response.data);
-        });
-    }, []);
-
+    if (isFetching)
+        <div>
+            <p>loading</p>
+        </div>;
+    console.log(data);
     return (
         <Container>
             <h2>Resultado da Simulação</h2>
             <ContentCard>
                 <Card
                     strongText="Valor final Bruto"
-                    spanText={simulacaoPre?.valorFinalBruto}
+                    spanText={data[0]?.valorFinalBruto}
                     // valorFinalBruto =
                 />
                 <Card
                     strongText="Alíquota do IR"
-                    spanText={simulacaoPre?.aliquotaIR}
+                    spanText={data[0]?.aliquotaIR}
                 />
 
                 <Card
                     strongText="Valor Pago em IR"
-                    spanText={simulacaoPre?.valorPagoIR}
+                    spanText={data[0]?.valorPagoIR}
                 />
 
                 <Card
                     strongText="Valor Final Líquido"
-                    spanText={simulacaoPre?.valorFinalLiquido}
+                    spanText={data[0]?.valorFinalLiquido}
                 />
 
                 <Card
                     strongText="Valor Total Investido"
-                    spanText={simulacaoPre?.valorTotalInvestido}
+                    spanText={data[0]?.valorTotalInvestido}
                 />
 
                 <Card
                     strongText="Ganho Líquido"
-                    spanText={simulacaoPre?.ganhoLiquido}
+                    spanText={data[0]?.ganhoLiquido}
                 />
             </ContentCard>
             <Graficos />

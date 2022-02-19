@@ -4,6 +4,7 @@ import { MdInfoOutline } from 'react-icons/md';
 import ReactTooltip from 'react-tooltip';
 import * as yup from 'yup';
 
+import { useContextButtonIndexacao } from '../../Context/ContextButtonIndexacao';
 import { ButtonIndexacao } from '../ButtonIndexacao';
 import {
     ContentInput,
@@ -13,6 +14,16 @@ import {
     ButtonSubmit,
 } from './styled';
 // import checkIcon from "../../assets/check.svg";
+type SimuladorProps = {
+    data: Array<{
+        valorFinalBruto: number;
+        aliquotaIR: number;
+        valorPagoIR: number;
+        valorFinalLiquido: number;
+        valorTotalInvestido: number;
+        ganhoLiquido: number;
+    }>;
+};
 
 type IndicadorProps = {
     valor: number;
@@ -31,6 +42,7 @@ const schema = yup
     .required();
 
 export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
+    const { handleSimulate } = useContextButtonIndexacao();
     const {
         register,
         handleSubmit,
@@ -38,7 +50,9 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
     } = useForm<FormInputs>({
         resolver: yupResolver(schema),
     });
-    const onSubmit = (data: FormInputs) => console.log(data);
+    const onSubmit = (data: FormInputs) => {
+        // handleSimulate(true);
+    };
 
     return (
         <ContainerForm onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +85,12 @@ export function FormIndexacao({ valor }: IndicadorProps): JSX.Element {
                 <p>CDI (ao ano)</p>
                 <input type="text" placeholder={valor?.toString()} />
             </ContentInput>
-            <ButtonSubmit type="submit">Simular</ButtonSubmit>
+            <ButtonSubmit onClick={() => handleSimulate(true)} type="submit">
+                Simular
+            </ButtonSubmit>
         </ContainerForm>
     );
+}
+function useFetch<T>(arg0: string): { data: any } {
+    throw new Error('Function not implemented.');
 }
